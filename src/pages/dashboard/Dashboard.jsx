@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import { PRODUCTS } from "../../Products";
-import { Product } from "./Product";
-import "./Dashboard.css";
+import "./dashboard.css";
+import React from "react";
+import { PRODUCTS } from "../../products";
+import { Product } from "./product";
 
-export default class Dashboard extends Component {
-  render() {
-    return (
-      <div>
-        <h2>Dashboard Page</h2>
-        <div>
-          {PRODUCTS.map((product) => (
-            <Product data={product} />
-          ))}
-        </div>
+export const Dashboard = () => {
+  return (
+    <div className="dashboard">
+      <div className="title">
+        <h1>Unik Shop</h1>
       </div>
-    );
-  }
-}
+
+      <div className="products">
+        {PRODUCTS.map((product) => (
+          <Product data={product} />
+        ))}
+      </div>
+    </div>
+  );
+};

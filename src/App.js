@@ -1,30 +1,26 @@
 import "./App.css";
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/navbar";
+import { Dashboard } from "./pages/dashboard/dashboard";
+import { Cart } from "./pages/cart/cart";
+import { ProductContextProvider } from "./context/product-context";
+import { Profile } from "./pages/profile/profile";
 
-import Cart from "./pages/Cart";
-import Account from "./pages/Account";
-import NoPage from "./pages/NoPage";
-import NavBar from "./components/NavBar";
-import Dashboard from "./pages/dashboard/Dashboard";
-
-export default function App() {
+function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<NavBar />}>
-            <Route index element={<Dashboard />} />
+      <ProductContextProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="*" element={<NoPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </Router>
+      </ProductContextProvider>
     </div>
   );
 }
 
-const root = createRoot(document.getElementById("root"));
-root.render(<App />);
+export default App;
