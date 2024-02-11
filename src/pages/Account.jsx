@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style.css";
 
 export default class Account extends Component {
   render() {

@@ -3,11 +3,11 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Dashboard from "./pages/Dashboard";
 import Cart from "./pages/Cart";
 import Account from "./pages/Account";
 import NoPage from "./pages/NoPage";
 import NavBar from "./components/NavBar";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 export default function App() {
   return (
