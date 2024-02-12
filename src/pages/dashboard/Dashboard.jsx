@@ -6,15 +6,18 @@ import { Product } from "./product";
 export const Dashboard = () => {
   return (
     <div className="dashboard">
-      <div className="title">
-        <h1>Unik Shop</h1>
-      </div>
+      <section className="ad-section">
+        <h3>Great Offer</h3>
+        <h4>Grab it right now or never!!</h4>
+        <h2>Super Value Deals</h2>
+        <p>TECHNI offer you great deals for all products.</p>
+      </section>
 
-      <div className="products">
+      <section className="products">
         {PRODUCTS.map((product) => (
           <Product data={product} />
         ))}
-      </div>
+      </section>
     </div>
   );
 };

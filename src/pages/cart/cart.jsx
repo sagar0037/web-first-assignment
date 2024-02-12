@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../../context/product-context";
 import { PRODUCTS } from "../../products";
-import { CartItem } from "./cart-item";
+import { CartItem } from "./cartitem";
 import { useNavigate } from "react-router-dom";
-
 import "./cart.css";
 
 export const Cart = () => {
-  const { cartItems, getTotalCartAmount, checkout } =
+  const { cartItems, getTotalCartAmount, deleteAll } =
     useContext(ProductContext);
   const totalAmount = getTotalCartAmount();
 
@@ -15,7 +14,7 @@ export const Cart = () => {
 
   return (
     <div className="cart">
-      <div className="cart">
+      <div>
         <h1>Your Cart Items</h1>
 
         {PRODUCTS.map((product) => {
@@ -26,13 +25,12 @@ export const Cart = () => {
       </div>
 
       {totalAmount > 0 ? (
-        <div className="checkout">
+        <div className="delete">
           <p> Subtotal: ${totalAmount} </p>
-          <button onClick={() => navigate("/")}> Continue Shopping </button>
+          <button onClick={() => navigate("/")}> Add More Items </button>
           <button
             onClick={() => {
-              checkout();
-              navigate("/");
+              deleteAll();
             }}
           >
             Delete All
